@@ -95,7 +95,7 @@ public class CircularServiceImpl implements IGenericService<Circular, Long> {
 			entity.setFecha(new Date());
 			entityAux = this.circularRepository.save(entity);
 			
-			sendEMail(entity);
+		//	sendEMail(entity);
 		} else {
 			throw new Exception("Duplicate resource. Generate error");
 		}							
