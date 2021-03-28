@@ -1,0 +1,55 @@
+CIRCULAR VIRTUAL
+
+URL 
+	https://circular-virtual-l8.herokuapp.com
+
+
+/tipo_circular
+			/generate
+						{
+						  "nombre":"URGENTE"
+						}
+			/see/{id}
+			/see_all
+
+
+tipo_destinatario
+			/generate
+						{
+						  "nombre":"URGENTE"
+						}
+
+			/see/{id}
+			/see_all
+
+
+/usuario
+			/generate
+						{
+						  "nombreApellido":"EUGENIO marandu ",
+						  "usuario":"user",
+						  "contraseña":"123",
+						  "tipoDestintario":{"id":3},
+						  "dni":"987654321",
+						  "correo":"eugenio.knoll@marandu.com.ar"
+						}
+
+			/see/{id}
+			/see_all
+
+
+/circular
+			/generate
+					{
+					  "titulo":"Circular ejemplo",
+					  "descripcion":"Se notifica que la próxima semana no hay clases.",
+					  "tipoDestinatario":{"id":2},
+					  "tipoCircular":{"id":1}
+					}
+
+			/see/{id}
+			/see_all
+			/confirmar/{idCircular}/{idUsuario}
+			/see_all_destinatario/{idUsuario}
+
+
