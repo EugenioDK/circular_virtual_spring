@@ -47,7 +47,7 @@ public class UsuarioController {
 	
 	@RequestMapping(value = "/see_all", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> findAll(@Or({ @Spec(path = "nombreApellido", spec = LikeIgnoreCase.class) }) Specification<Usuario> spec,
-			@PageableDefault(page = 0, size = 10, sort = "nombreApellido", direction = Direction.ASC) Pageable pageable) {
+			@PageableDefault(page = 0, size = 100, sort = "nombreApellido", direction = Direction.ASC) Pageable pageable) {
 		try {
 			Page<Usuario> lstAux = this.usuarioService.findAll(spec, pageable);
 			return new ResponseEntity<>(lstAux, HttpStatus.OK);

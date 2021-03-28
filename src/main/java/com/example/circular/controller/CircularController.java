@@ -49,7 +49,7 @@ public class CircularController {
 	
 	@RequestMapping(value = "/see_all", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<?> findAll(@Or({ @Spec(path = "titulo", spec = LikeIgnoreCase.class) }) Specification<Circular> spec,
-			@PageableDefault(page = 0, size = 10, sort = "fecha", direction = Direction.ASC) Pageable pageable) {
+			@PageableDefault(page = 0, size = 100, sort = "fecha", direction = Direction.ASC) Pageable pageable) {
 		try {
 			Page<Circular> lstAux = this.circularService.findAll(spec, pageable);
 			return new ResponseEntity<>(lstAux, HttpStatus.OK);
