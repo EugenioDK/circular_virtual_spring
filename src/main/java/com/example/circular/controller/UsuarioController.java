@@ -86,5 +86,18 @@ public class UsuarioController {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		}		
 	}
+	
+
+	@RequestMapping(value = "/login/{uss}/{pss}", method = RequestMethod.PUT, produces = "application/json")
+	public ResponseEntity<?> login(@PathVariable String uss, @PathVariable String pss) {		
+		try {
+			Usuario entityAux = this.usuarioService.login(uss, pss);	
+			return new ResponseEntity<>(entityAux, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+		}		
+	}
+	
+	
 
 }

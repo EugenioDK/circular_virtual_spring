@@ -1,5 +1,7 @@
 package com.example.circular.service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import com.example.circular.model.Circular;
+import com.example.circular.model.ConfirmacionLectura;
 import com.example.circular.model.Usuario;
 import com.example.circular.repository.UsuarioRepository;
 
@@ -82,6 +86,18 @@ public class UsuarioServiceImpl implements IGenericService<Usuario, Long> {
 		}
 		return this.getMessage();
 	}
+	
 
+	public Usuario login(String uss, String pss) throws Exception {
+		Usuario entityAux = this.usuarioRepository.findByUss(uss, pss).get(0);
+		if (entityAux != null) {
+			
+	
+		} else {
+			throw new Exception("No se encontro el usuario. ");
+		}
+		return entityAux;
+	}
+	
 }
 

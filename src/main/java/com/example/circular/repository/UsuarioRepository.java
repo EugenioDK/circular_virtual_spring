@@ -19,4 +19,8 @@ Page<Usuario> findAll(Specification<Usuario> spec, Pageable pageable);
 
 	@Query("SELECT o FROM Usuario o WHERE o.status = true and o.tipoDestinatario.id = ?1")
 	List<Usuario> findAllDestinatario(Long id);
+	
+	@Query("SELECT o FROM Usuario o WHERE o.status = true and o.usuario = ?1 and o.contraseña = ?2 ")
+	List<Usuario> findByUss(String usuario, String contraseña);
+	
 }
